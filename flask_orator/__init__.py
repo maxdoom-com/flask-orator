@@ -51,17 +51,18 @@ class Orator(object):
         return int(request.args.get('page', 1))
 
     def init_commands(self):
-        self.cli = Application(
-            orator_application.get_name(),
-            orator_application.get_version(),
-            complete=True
-        )
+        pass
+        # self.cli = Application(
+        #     orator_application.get_name(),
+        #     orator_application.get_version(),
+        #     complete=True
+        # )
 
-        for command in orator_application.all().values():
-            if isinstance(command, Command):
-                self.cli.add(command.__class__(self._db))
-            else:
-                self.cli.add(command)
+        # for command in orator_application.all().values():
+        #     if isinstance(command, Command):
+        #         self.cli.add(command.__class__(self._db))
+        #     else:
+        #         self.cli.add(command)
 
     def register_handlers(self, app):
         self._register_error_handlers(app)
